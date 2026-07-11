@@ -25,10 +25,28 @@ import { validateForm } from "./validation.js";
         displayBox();
         displayProgress();
         displayComplete();
+        Toastify({
+            text: "Task added successfully!",
+            duration: 2500,
+            gravity: "top",
+            position: "right",
+            style: {
+                background: "linear-gradient(to right, #059669, #10b981)",
+            },
+        }).showToast();
     });
     setInterval(() => {
         displayBox();
         displayProgress();
         displayComplete();
     }, 60000);
+    const descriptionArea = document.getElementById("description");
+    const textareaCountSpan = document.getElementById("textareaCount");
+    function updateCharCount() {
+        if (descriptionArea && textareaCountSpan) {
+            const currentLength = descriptionArea.value.length;
+            textareaCountSpan.textContent = currentLength.toString();
+        }
+    }
+    descriptionArea?.addEventListener("input", updateCharCount);
 })();

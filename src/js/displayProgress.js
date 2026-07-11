@@ -29,6 +29,10 @@ function getDueStatus(date) {
 }
 export function displayProgress() {
     const progressList = list.filter((item) => item.status === "progress");
+    const progressCountEl = document.getElementById("progressCount");
+    if (progressCountEl) {
+        progressCountEl.innerHTML = `${progressList.length}`;
+    }
     if (progressList.length === 0) {
         InProgress.innerHTML = `
       <div class="py-12 flex flex-col items-center justify-center text-slate-400">

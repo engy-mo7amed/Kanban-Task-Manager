@@ -17,6 +17,10 @@ function formatTimeAgo(createdAt: number): string {
 
 export function displayComplete() {
   const completeList = list.filter((item) => item.status === "complete");
+  const completeCountEl = document.getElementById("completeCount");
+  if (completeCountEl) {
+    completeCountEl.innerHTML = `${completeList.length}`;
+  }
 
   if (completeList.length === 0) {
     Complete.innerHTML = `

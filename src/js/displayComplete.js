@@ -16,6 +16,10 @@ function formatTimeAgo(createdAt) {
 }
 export function displayComplete() {
     const completeList = list.filter((item) => item.status === "complete");
+    const completeCountEl = document.getElementById("completeCount");
+    if (completeCountEl) {
+        completeCountEl.innerHTML = `${completeList.length}`;
+    }
     if (completeList.length === 0) {
         Complete.innerHTML = `
       <div class="py-12 flex flex-col items-center justify-center text-slate-400">

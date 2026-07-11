@@ -5,6 +5,8 @@ import { closeOverlay, displayOverlay } from "./overlay.js";
 import "./actions.js";
 import { displayComplete } from "./displayComplete.js";
 import { validateForm } from "./validation.js";
+declare const Toastify: any;
+
 (function (): void {
   displayOverlay();
   displayBox();
@@ -25,6 +27,15 @@ import { validateForm } from "./validation.js";
     displayBox();
     displayProgress();
     displayComplete();
+    Toastify({
+    text: "Task added successfully!",
+    duration: 2500,
+    gravity: "top",
+    position: "right",
+    style: {
+      background: "linear-gradient(to right, #059669, #10b981)",
+    },
+  }).showToast();
   });
 
   setInterval(() => {
@@ -32,4 +43,20 @@ import { validateForm } from "./validation.js";
     displayProgress();
     displayComplete();
   }, 60000);
+
+  const descriptionArea = document.getElementById(
+    "description",
+  ) as HTMLTextAreaElement;
+  const textareaCountSpan = document.getElementById(
+    "textareaCount",
+  ) as HTMLSpanElement;
+
+  function updateCharCount(): void {
+    if (descriptionArea && textareaCountSpan) {
+      const currentLength = descriptionArea.value.length;
+      textareaCountSpan.textContent = currentLength.toString();
+    }
+  }
+
+  descriptionArea?.addEventListener("input", updateCharCount);
 })();

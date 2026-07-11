@@ -29,6 +29,10 @@ function getDueStatus(date) {
 }
 export function displayBox() {
     const todoList = list.filter((item) => item.status === "todo");
+    const todoCountEl = document.getElementById("todoCount");
+    if (todoCountEl) {
+        todoCountEl.innerHTML = `${todoList.length}`;
+    }
     if (todoList.length === 0) {
         ToDo.innerHTML = `
       <div class="py-12 flex flex-col items-center justify-center text-slate-400">

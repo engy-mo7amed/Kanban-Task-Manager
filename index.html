@@ -147,13 +147,14 @@
               <textarea
                 name="description"
                 id="description"
+                maxlength="500"
                 placeholder="Add more details about this task..."
                 rows="3"
                 class="w-full resize-none px-4 py-3 border border-slate-300 rounded-lg transition-all placeholder:text-slate-400 focus:ring-indigo-500 focus:border-indigo-500 focus:ring-2 outline-none"
               ></textarea>
               <div class="flex">
                 <p id="char-count" class="text-slate-400 text-xs ml-auto">
-                  0/500
+                  <span id="textareaCount">0</span>/500
                 </p>
               </div>
             </div>
@@ -207,7 +208,7 @@
               </div>
               <div class="flex-1">
                 <h2 class="font-semibold text-slate-800">To Do</h2>
-                <p class="text-xs text-slate-400">0 tasks</p>
+                <p class="text-xs text-slate-400"><span id="todoCount"></span> tasks</p>
               </div>
             </div>
 
@@ -228,7 +229,7 @@
               </div>
               <div class="flex-1">
                 <h2 class="font-semibold text-slate-800">In Progress</h2>
-                <p class="text-xs text-slate-400">0 tasks</p>
+                <p class="text-xs text-slate-400"><span id="progressCount"></span> tasks</p>
               </div>
             </div>
 
@@ -251,7 +252,7 @@
               </div>
               <div class="flex-1">
                 <h2 class="font-semibold text-slate-800">Completed</h2>
-                <p class="text-xs text-slate-400">0 tasks</p>
+                <p class="text-xs text-slate-400"><span id="completeCount"></span> tasks</p>
               </div>
             </div>
 
